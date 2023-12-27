@@ -30,6 +30,15 @@ function App() {
   };
 
   const handleSubmit = () => {
+    if (phoneNumber.length !== 10) {
+      toast("Phone number must be 10 digits", {
+        style: {
+          background: "black",
+          color: "white",
+        }
+      })
+      return;
+    }
     axios
       .get(`/is-new-user/${phoneNumber}`)
       .then((res) => {
